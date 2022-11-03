@@ -1,14 +1,12 @@
 const http = require("http");
 
-const os = require("os");
-
-const greeting = require("./greeting");
-let userName = os.userInfo().username;
-console.log(userName)
-
-console.log(`Дата запроса: ${greeting.date}`);
-console.log(greeting.getMessage(userName));
-
-const User = require("./user");
-let stil = new User("Stil", 32);
-stil.sayHi();
+function countup(startNum, endNum) {
+    if (startNum > endNum) {
+        return [];
+    } else {
+        const countArray = countup(startNum, endNum - 1);
+        countArray.push(endNum);
+        return countArray;
+    }
+}
+console.log(countup(4, 8));
